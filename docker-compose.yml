@@ -1,0 +1,12 @@
+services:
+  peacockserver:
+    container_name: PeacockServer
+    image: kodemonaut/simplepeacock:latest
+    ports:
+      - "4700:80"
+    volumes:
+      - /your/data/Peacock/version:/Peacock/version
+      - /your/data/Peacock/userdata:/Peacock/userdata
+      - /your/data/Peacock/contractSessions:/Peacock/contractSessions
+      - /your/data/Peacock/plugins:/Peacock/plugins
+    restart: unless-stopped

@@ -5,7 +5,7 @@ ZIP_GLOB="/Peacock/version/Peacock-*-linux.zip"
 TMP_DIR="/tmp/peacock_payload"
 RUNTIME="/opt/peacock_runtime"
 TARGET_VOL="/Peacock"
-HOST_SUBDIRS=(version userdata contractSessions plugins)
+HOST_SUBDIRS=(version userdata contracts contractSessions plugins)
 
 err(){ echo "Peacock release missing or chunk0.js not found. Place the Linux ZIP in /Peacock/version or ensure chunk0.js is in /Peacock." >&2; exit 1; }
 

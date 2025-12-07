@@ -37,7 +37,7 @@ Let's move on to installation. To run the container it is advisable to prepare y
 │   ├── scpc/
 │   ├── steamids/
 │   └── users/
-├── 📁 contracts/              ← Your Hitman-Save-Files
+├── 📁 contracts/                     ← Custom contracts
 │   ├── contactid1.json
 │   └── contactid2.json
 ├── 📁 contractSessions/              ← Your Hitman-Save-Files

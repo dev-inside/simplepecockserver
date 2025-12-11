@@ -1,9 +1,10 @@
 ## SPHS (Simple Peacock-Server for Hitman)
 
-> ### ⚠️⚠️ BREAKING CHANGES ⚠️⚠️
-> In Version 0.1.1, the `/contracts`-volume has been added to the image. You can finally add custom-contracts via this volume. Make shure, that you mount that volume before the update. 
+> ### ⚠️ BREAKING CHANGES ⚠️
+> In Version 0.1.1, the `/contracts`-volume has been added to the image. You can finally add custom-contracts via this volume. Make shure, that you mount that volume before the update. In 0.1.2 I've added the config.ini. This file contains several options like "show elusive targets" or other useful options.
+> The file has to be placed in the root as `/options.ini`.
 >
->If you're using the tag `:0.1.0`, then you should update to `:0.1.1` If you're using the `:latest` tag, then you have to restart the container.
+>If you're using the tag `:0.1.0`, then you should update to atleast `:0.1.2`. If you're using the `:latest` tag, then you have to restart the container.
 
 SPHS (Simple Peacock-Server for Hitman) is a Docker image for Hitman World of Assassination. The difference in this image is as follows:
 - It does not automatically fetch the **"latest"** version of Peacock; instead, the user provides Peacock as a ZIP in the volume. This step may initially seem odd, but it gives you as a Hitman player and self-hoster the following advantages:
@@ -14,6 +15,7 @@ SPHS (Simple Peacock-Server for Hitman) is a Docker image for Hitman World of As
 ----
 ## Volumes
 The container uses four of the default directories of `Peacock` and an additional one for the version:
+- `options.ini` - The options file contains several QOL-Options like f.a. higlighting an elusive target etc. It's placed in the root folder.
 - `userdata` - Contains your userdata for example Steam- or Epic-ID verifiation and your game progress data
 - `contracts` - Contains all contracts which can be downloaded automatically or manually by adding custom contracts as `.json`-files
 - `contractSessions`- Savefiles (Manually and Automatically)
@@ -44,8 +46,9 @@ Let's move on to installation. To run the container it is advisable to prepare y
 │   ├── 22-04-autosave.json
 │   └── 12-01-autosave.json
 └── 📁 plugins/                       ← compatible Peacock plugins (JS files), e.g.:
-    ├── KillEveryoneCampaign.plugin.js
-    └── another-plugin.plugin.js
+│   ├── KillEveryoneCampaign.plugin.js
+│   └── another-plugin.plugin.js
+└── 💾 options.ini                    ← some Peacock-options
 ```
 
 The server will only start if all volumes are created correctly and the __Peacock-Zip__ is in the right directory! Let's look at the docker-compose.yml with the example "your/data/Peacock".
@@ -60,6 +63,7 @@ docker build -t peacockserver . && docker run --name PeacockServer -p 4700:80 \
 -v /your/data/Peacock/contracts:/Peacock/contracts \
 -v /your/data/Peacock/contractSessions:/Peacock/contractSessions \
 -v /your/data/Peacock/plugins:/Peacock/plugins \
+-v /your/data/Peacock/options.ini:/Peacock/options.ini
 --restart unless-stopped peacockserver
 
 ````
@@ -81,6 +85,7 @@ services:
       - /your/data/Peacock/contracts:/Peacock/contracts
       - /your/data/Peacock/contractSessions:/Peacock/contractSessions
       - /your/data/Peacock/plugins:/Peacock/plugins
+      - /your/data/Peacock/options.ini:/Peacock/options.ini
     restart: unless-stopped
 
 ```

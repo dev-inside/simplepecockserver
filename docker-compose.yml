@@ -10,4 +10,5 @@ services:
       - /your/data/Peacock/contracts:/Peacock/contracts
       - /your/data/Peacock/contractSessions:/Peacock/contractSessions
       - /your/data/Peacock/plugins:/Peacock/plugins
+      - /your/data/Peacock/options.ini:/Peacock/options.ini
     restart: unless-stopped

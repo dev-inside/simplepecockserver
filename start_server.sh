@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Check if options.ini exists
+if [ ! -f "/Peacock/options.ini" ]; then
+  echo "options.ini is missing!" >&2
+  exit 1
+fi
+
 ZIP_GLOB="/Peacock/version/Peacock-*-linux.zip"
 TMP_DIR="/tmp/peacock_payload"
 RUNTIME="/opt/peacock_runtime"

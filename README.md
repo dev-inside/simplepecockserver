@@ -4,7 +4,7 @@
 > In Version 0.1.1, the `/contracts`-volume has been added to the image. You can finally add custom-contracts via this volume. Make shure, that you mount that volume before the update. In 0.1.2 I've added the config.ini. This file contains several options like "show elusive targets" or other useful options.
 > The file has to be placed in the root as `/options.ini`.
 >
->If you're using the tag `:0.1.0`, then you should update to atleast `:0.1.2`. If you're using the `:latest` tag, then you have to restart the container.
+>If you're using the tag `:0.1.0`, then you should update to atleast `:0.1.2`. If you're using the `:latest` tag, then you have just to pull the update.
 
 SPHS (Simple Peacock-Server for Hitman) is a Docker image for Hitman World of Assassination. The difference in this image is as follows:
 - It does not automatically fetch the **"latest"** version of Peacock; instead, the user provides Peacock as a ZIP in the volume. This step may initially seem odd, but it gives you as a Hitman player and self-hoster the following advantages:

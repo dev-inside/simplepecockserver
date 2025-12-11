@@ -14,7 +14,7 @@ SPHS (Simple Peacock-Server for Hitman) is a Docker image for Hitman World of As
 
 ----
 ## Volumes
-The container uses four of the default directories of `Peacock` and an additional one for the version:
+The following volumes are needed to run `SPHS`:
 - `options.ini` - The options file contains several QOL-Options like f.a. higlighting an elusive target etc. It's placed in the root folder.
 - `userdata` - Contains your userdata for example Steam- or Epic-ID verifiation and your game progress data
 - `contracts` - Contains all contracts which can be downloaded automatically or manually by adding custom contracts as `.json`-files
